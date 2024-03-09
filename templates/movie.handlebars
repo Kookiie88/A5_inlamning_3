@@ -1,5 +1,6 @@
 <script src="/static/individualScreenings.js" type="module" defer></script>
 <script src="/static/reviewsForMovie.js" type="module" defer></script>
+<script src="/static/fetchRatings.js" type="module" defer></script>
 <section class="movieInformation">
   <div class="movieInformation__container">
     {{#if movie.image}}
@@ -19,6 +20,10 @@
       <div class="movieInformation__oneReview"></div>
       <div class="movieInformation__reviewsArrows"></div>
       <div class="movieInformation__reviewsPagination"></div>
+    </div>
+    <div class="movieInformation__RatingValue">
+      <h2 class="movieInformation__reviewsHeading">Rating</h2>
+      <p class="movieInformation__presentValue"></p>
     </div>
   {{> postreview}}
     <a class="movieInformation__link" href="/movies">Back to movie page</a>

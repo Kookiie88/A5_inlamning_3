@@ -99,8 +99,15 @@ app.get("/newsevents", async (request, response) => {
 //get reviews for a movie
 app.get("/api/movies/:movieId", async (request, response) => {
   try {
-    const reviewsData = await getMovieReviews(request.params.movieId, cmsAdapterReviews);
-    const reviewArray = await paginateReviews(reviewsData, request.query.page, request.query.limit);
+    const reviewsData = await getMovieReviews(
+      request.params.movieId,
+      cmsAdapterReviews
+    );
+    const reviewArray = await paginateReviews(
+      reviewsData,
+      request.query.page,
+      request.query.limit
+    );
 
     if (reviewArray.length > 1) {
       response.status(200).json(reviewArray);
@@ -132,7 +139,7 @@ app.post("/api/movies/review", (request, response) => {
 app.get("/api/movies/rating/:id", async (req, res) => {
   try {
     const data = await averageRating(req.params.id);
-    res.send(data);
+    res.json(data);
   } catch (error) {
     console.log(error.message);
   }
